@@ -7,6 +7,10 @@ import CodeTypingAnimation from '@/src/components/code-typing-animation'
 import InteractiveWave from '@/src/components/interactive-wave'
 import ProjectParticles from '@/src/components/project-particles'
 import { usePortfolioController } from '@/src/controllers/usePortfolioController'
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ContactSchema } from '@/src/models/ContactSchema';
+import { useState } from 'react';
 
 export default function Home() {
     const { hero, blobConfig, particlesConfig, palette, codeAnimation, about, stack, projects, games, contact, language, toggleLanguage } = usePortfolioController();
@@ -146,7 +150,7 @@ function AboutSection({ about, palette, language }) {
                         <span className="text-xs font-bold tracking-[0.5em] text-neutral-400 uppercase">
                             01 / {language === 'es' ? 'Manifiesto' : 'Manifest'}
                         </span>
-                        <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.85]">
+                        <h2 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-[0.85]">
                             {about.title}
                         </h2>
                     </div>
@@ -336,12 +340,25 @@ function ProjectsSection({ projects, palette, language }) {
                                     {project.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
-                                    {project.tags.map((tag, tIndex) => (
-                                        <span key={tIndex} className="text-[9px] font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300">
-                                            #{tag}
-                                        </span>
-                                    ))}
+                                <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tags.map((tag, tIndex) => (
+                                            <span key={tIndex} className="text-[9px] font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300">
+                                                #{tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-2.5 rounded-full bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:border-white/30 transition-all duration-300 ml-4 shrink-0"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
 
@@ -358,8 +375,8 @@ function ProjectsSection({ projects, palette, language }) {
                         {projects.cta}
                     </button>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     )
 }
 
@@ -389,15 +406,24 @@ function GamesSection({ games, language }) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {games.list.map((game, index) => (
                         <div key={index} className="group relative bg-[#0a0a0a] border-2 border-white/10 p-1 transition-all hover:border-cyan-400/50 hover:-translate-y-2">
-                            {/* Placeholder Imagen Juego */}
+                            {/* Imagen del Juego o Placeholder */}
                             <div className="relative w-full aspect-video bg-[#1a1a1a] overflow-hidden group-hover:bg-[#222]">
-                                <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity">
-                                    <div className="w-12 h-12 border-2 border-cyan-400 rounded-lg animate-spin" style={{ animationDuration: '4s' }}></div>
-                                </div>
-                                <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/50 text-[9px] font-mono text-cyan-400 border border-cyan-400/30">
+                                {game.image ? (
+                                    <img
+                                        src={game.image}
+                                        alt={game.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity">
+                                        <div className="w-12 h-12 border-2 border-cyan-400 rounded-lg animate-spin" style={{ animationDuration: '4s' }}></div>
+                                    </div>
+                                )}
+
+                                <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/60 backdrop-blur-md text-[9px] font-mono text-cyan-400 border border-cyan-400/30 z-10">
                                     0{game.id}
                                 </div>
-                                <div className="absolute bottom-2 right-2 text-[10px] font-mono font-bold text-white/40 uppercase">
+                                <div className="absolute bottom-2 right-2 text-[10px] font-mono font-bold text-white/80 uppercase bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10 z-10">
                                     {game.genre}
                                 </div>
                             </div>
@@ -449,6 +475,46 @@ function GamesSection({ games, language }) {
 }
 
 function ContactSection({ contact, language }) {
+    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm({
+        resolver: zodResolver(ContactSchema),
+        defaultValues: {
+            email: "",
+            subject: "",
+            message: "",
+            hp_field: "" // Honeypot vacío por defecto
+        }
+    });
+
+    const onSubmit = async (data) => {
+        setStatus('loading');
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error en el envío');
+            }
+
+            setStatus('success');
+            reset();
+            // Clear success message after 5 seconds
+            setTimeout(() => setStatus('idle'), 5000);
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+        }
+    };
 
     if (!contact) return null;
 
@@ -514,29 +580,78 @@ function ContactSection({ contact, language }) {
                     {/* Columna Derecha: Formulario Elegante */}
                     <div className="relative">
                         <div className="absolute inset-0 bg-neutral-100/50 blur-3xl rounded-3xl -z-10 transform rotate-3" />
-                        <div className="bg-white p-8 md:p-12 rounded-[40px] border border-neutral-100 shadow-2xl shadow-neutral-200/50 space-y-8">
+                        <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 md:p-12 rounded-[40px] border border-neutral-100 shadow-2xl shadow-neutral-200/50 space-y-8">
+
+                            {/* Honeypot field - Hidden from users */}
+                            <input type="text" {...register("hp_field")} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">{contact.nameLabel}</label>
-                                    <input type="text" placeholder="John Doe" className="w-full px-6 py-4 rounded-2xl bg-neutral-50 border border-neutral-100 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium" />
+                                    <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">{contact.subjectLabel}</label>
+                                    <input
+                                        type="text"
+                                        placeholder={contact.namePlaceholder || "Hola..."}
+                                        className={`w-full px-6 py-4 rounded-2xl bg-neutral-50 border ${errors.subject ? 'border-red-300 bg-red-50' : 'border-neutral-100'} focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium`}
+                                        {...register("subject")}
+                                    />
+                                    {errors.subject && <span className="text-[10px] text-red-500 font-bold ml-1">{errors.subject.message}</span>}
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">{contact.emailFormLabel}</label>
-                                    <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 rounded-2xl bg-neutral-50 border border-neutral-100 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium" />
+                                    <input
+                                        type="email"
+                                        placeholder="john@example.com"
+                                        className={`w-full px-6 py-4 rounded-2xl bg-neutral-50 border ${errors.email ? 'border-red-300 bg-red-50' : 'border-neutral-100'} focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium`}
+                                        {...register("email")}
+                                    />
+                                    {errors.email && <span className="text-[10px] text-red-500 font-bold ml-1">{errors.email.message}</span>}
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest ml-1">{contact.msgLabel}</label>
-                                <textarea rows="4" placeholder={contact.msgPlaceholder} className="w-full px-6 py-4 rounded-2xl bg-neutral-50 border border-neutral-100 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium resize-none" />
+                                <textarea
+                                    rows="4"
+                                    placeholder={contact.msgPlaceholder}
+                                    className={`w-full px-6 py-4 rounded-2xl bg-neutral-50 border ${errors.message ? 'border-red-300 bg-red-50' : 'border-neutral-100'} focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-medium resize-none`}
+                                    {...register("message")}
+                                />
+                                {errors.message && <span className="text-[10px] text-red-500 font-bold ml-1">{errors.message.message}</span>}
                             </div>
-                            <button className="w-full py-5 rounded-2xl bg-black text-white font-bold text-sm uppercase tracking-widest hover:bg-neutral-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-3 active:scale-[0.98]">
-                                <span>{contact.cta}</span>
-                                <span className="text-lg">→</span>
+
+                            <button
+                                type="submit"
+                                disabled={status === 'loading'}
+                                className="w-full py-5 rounded-2xl bg-black text-white font-bold text-sm uppercase tracking-widest hover:bg-neutral-800 transition-all shadow-xl shadow-black/10 flex items-center justify-center gap-3 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                            >
+                                {status === 'loading' ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                        <span>{contact.sendingMsg}</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span>{contact.cta}</span>
+                                        <span className="text-lg">→</span>
+                                    </>
+                                )}
                             </button>
-                            <p className="text-center text-[10px] text-neutral-400 font-medium">
-                                {contact.successMsg}
-                            </p>
-                        </div>
+
+                            {status === 'success' && (
+                                <p className="text-center text-[10px] text-green-500 font-bold animate-pulse">
+                                    {contact.successMsg}
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className="text-center text-[10px] text-red-500 font-bold">
+                                    {contact.errorMsg}
+                                </p>
+                            )}
+                            {status === 'idle' && (
+                                <p className="text-center text-[10px] text-neutral-400 font-medium">
+                                    {contact.successMsg}
+                                </p>
+                            )}
+                        </form>
                     </div>
                 </div>
             </div>

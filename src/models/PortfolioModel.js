@@ -25,24 +25,24 @@ export const portfolioData = {
             badge: "Disponible para Proyectos"
         },
         about: {
-            title: "FILOSOFÍA DE TRABAJO",
-            description: "Mi enfoque se basa en la convergencia entre la lógica pura y la estética disruptiva. No solo construyo software, diseño experiencias digitales que desafían lo convencional.",
+            title: "FUNCIONANDO POR CREATIVIDAD",
+            description: "Mi enfoque se basa en la convergencia entre la lógica pura y la estética. No solo construyo software, diseño experiencias digitales que desafían lo convencional además de ser agradable para el usuario.",
             details: [
-                { label: "EXPERIENCIA", value: "+5 Años" },
+                { label: "EXPERIENCIA", value: "+2 Años" },
                 { label: "MODO", value: "Full Stack" },
-                { label: "FOCO", value: "Creative Tech" }
+                { label: "CURSANDO", value: "Ingenieria Mecatronica" }
             ],
-            manifesto: "El código es el pincel del siglo XXI. Cada línea debe tener un propósito, cada píxel una intención.",
+            manifesto: "El código es el pincel del siglo XXI. Cada línea debe tener un propósito, cada píxel una intención, cada pixel debe ser agradable para el usuario.",
             watermark: "Acerca de",
             techTitle: "Ecosistema Tecnológico",
             techCta: "Ver stack completo"
         },
         stack: {
-            title: "CORE TECH STACK",
+            title: "ECOSISTEMA TECNOLÓGICO",
             description: "Mi ecosistema de herramientas está diseñado para la escalabilidad y el rendimiento.",
             categories: [
                 {
-                    name: "Frontend Architecture",
+                    name: "Arquitectura Frontend",
                     skills: [
                         { name: "React / Next.js", usage: "SSR, Interactividad, Hooks" },
                         { name: "Three.js", usage: "Renderizado 3D, WebGL" },
@@ -50,7 +50,7 @@ export const portfolioData = {
                     ]
                 },
                 {
-                    name: "Backend Logic",
+                    name: "Arquitectura Backend",
                     skills: [
                         { name: "Node.js / PHP", usage: "Microservicios, APIs REST" },
                         { name: "Python", usage: "Automatización, Scripting Backend" },
@@ -58,7 +58,7 @@ export const portfolioData = {
                     ]
                 },
                 {
-                    name: "Intelligence & Data",
+                    name: "Inteligencia Y Datos",
                     skills: [
                         { name: "Integración IA", usage: "Modelos ML, Implementaciones LLM" },
                         { name: "Ciencia de Datos", usage: "Análisis, Visualización" }
@@ -78,27 +78,35 @@ export const portfolioData = {
             list: [
                 {
                     id: 1,
-                    title: "Nebula Engine",
-                    category: "Dev Creativo",
-                    description: "Motor de renderizado procedural para visualizaciones de datos en tiempo real. Utiliza WebGL y computación paralela.",
-                    tags: ["Three.js", "GLSL", "React"],
+                    title: "Gestion de Inventario Mecatronica",
+                    category: "Full Stack Dev",
+                    description: "Un potente sistema de inventario para gestionar componentes de un taller de mecatrónica",
+                    tags: ["PhP", "CSS", "MySQL", "JS"],
                     color: "#00f2ff"
                 },
                 {
                     id: 2,
-                    title: "Quantum API",
+                    title: "InvLocation API",
                     category: "Backend",
-                    description: "Arquitectura de microservicios diseñada para procesar millones de peticiones por segundo con latencia mínima.",
-                    tags: ["Node.js", "Redis", "Docker"],
+                    description: "Una API Rest para control de inventario",
+                    tags: ["Node.js", "PHP", "MySQL", "JS"],
                     color: "#7000ff"
                 },
                 {
                     id: 3,
-                    title: "Aura AI",
+                    title: "GradeGuesser",
                     category: "Inteligencia Artificial",
-                    description: "Plataforma de generación de interfaces dinámicas basada en el comportamiento del usuario mediante redes neuronales.",
+                    description: "Un sistema de predicción de notas basado en el comportamiento del usuario mediante redes neuronales.",
                     tags: ["Python", "PyTorch", "Next.js"],
                     color: "#ff0055"
+                },
+                {
+                    id: 4,
+                    title: "TradingView",
+                    category: "Frontend",
+                    description: "Permite al usuario tener una grafica estable y simple de un mercado financiero a tiempo.",
+                    tags: ["Next.js", "Tailwind CSS", "Three.js"],
+                    color: "#51ff00"
                 }
             ]
         },
@@ -109,27 +117,21 @@ export const portfolioData = {
             list: [
                 {
                     id: 1,
-                    title: "Cyber Rush 198X",
-                    genre: "Acción / Runner",
-                    description: "Un frenético endless runner con estética retrowave y música synthwave procedimental.",
-                    tech: "Unity / C#",
-                    score: "8.5 / 10"
+                    image: "/banners/dungeonera_banner.png",
+                    title: "DUNGEONERA",
+                    genre: "RPG / Roguelike",
+                    description: "Un juego de rol en tiempo real con mecánicas de combate y exploración.",
+                    tech: "Game Maker Studio 2 / GML",
+                    score: "2022"
                 },
                 {
                     id: 2,
-                    title: "Pixel Knight",
-                    genre: "RPG / Plataformas",
-                    description: "Un tributo a los clásicos de 8 bits con mecánicas modernas de combate y exploración.",
+                    image: "/banners/endarksun_banner.png",
+                    title: "Endarkened Sun",
+                    genre: "RPG / Soulslike",
+                    description: "Un tributo a los clásicos de Soulslike con mecánicas modernas de combate y exploración.",
                     tech: "Godot / GDScript",
-                    score: "9.0 / 10"
-                },
-                {
-                    id: 3,
-                    title: "Void Striker",
-                    genre: "Shoot 'em up",
-                    description: "Combate espacial intensivo con sistemas de partículas avanzados y dificultad progresiva.",
-                    tech: "Phaser.js / JS",
-                    score: "8.0 / 10"
+                    score: "2022"
                 }
             ],
             footer: {
@@ -147,9 +149,12 @@ export const portfolioData = {
             location: "Remoto / Mundo",
             cta: "Enviar Mensaje",
             successMsg: "Respuesta garantizada en menos de 24 horas.",
+            sendingMsg: "Enviando...",
+            errorMsg: "Error al enviar. Intenta de nuevo.",
             badge: "Ponte en contacto",
             nameLabel: "Nombre",
             emailFormLabel: "Email",
+            subjectLabel: "Asunto",
             msgLabel: "Mensaje",
             msgPlaceholder: "Cuéntame sobre tu proyecto...",
             watermark: "Hola Mundo"
@@ -165,12 +170,12 @@ export const portfolioData = {
             badge: "Available for Projects"
         },
         about: {
-            title: "WORK PHILOSOPHY",
-            description: "My approach is based on the convergence of pure logic and disruptive aesthetics. I don't just build software, I design digital experiences that challenge the conventional.",
+            title: "WORK BY CREATIVITY",
+            description: "My work is based on the convergence of pure logic and disruptive aesthetics. I don't just build software, I design digital experiences that challenge the conventional.",
             details: [
-                { label: "EXPERIENCE", value: "+5 Years" },
+                { label: "EXPERIENCE", value: "+2 Years" },
                 { label: "MODE", value: "Full Stack" },
-                { label: "FOCUS", value: "Creative Tech" }
+                { label: "ON ROAD", value: "Mechatronic Engineer" }
             ],
             manifesto: "Code is the paintbrush of the 21st century. Every line must have a purpose, every pixel an intention.",
             watermark: "About",
@@ -249,6 +254,7 @@ export const portfolioData = {
             list: [
                 {
                     id: 1,
+                    image: "",
                     title: "Cyber Rush 198X",
                     genre: "Action / Runner",
                     description: "A frantic endless runner with retrowave aesthetics and procedural synthwave music.",
@@ -257,6 +263,7 @@ export const portfolioData = {
                 },
                 {
                     id: 2,
+                    image: "",
                     title: "Pixel Knight",
                     genre: "RPG / Platformer",
                     description: "A tribute to 8-bit classics with modern combat and exploration mechanics.",
@@ -265,6 +272,7 @@ export const portfolioData = {
                 },
                 {
                     id: 3,
+                    image: "",
                     title: "Void Striker",
                     genre: "Shoot 'em up",
                     description: "Intensive space combat with advanced particle systems and progressive difficulty.",
@@ -287,9 +295,12 @@ export const portfolioData = {
             location: "Remote / Worldwide",
             cta: "Send Message",
             successMsg: "Guaranteed response in less than 24 hours.",
+            sendingMsg: "Sending...",
+            errorMsg: "Send failed. Try again.",
             badge: "Get in touch",
             nameLabel: "Name",
             emailFormLabel: "Email",
+            subjectLabel: "Subject",
             msgLabel: "Message",
             msgPlaceholder: "Tell me about your project...",
             watermark: "Hello World"
@@ -297,7 +308,7 @@ export const portfolioData = {
     },
     common: {
         contactInfo: {
-            email: "paulo.ruiz@dev.com",
+            email: "paulo.ruiz555@hotmail.com",
             socials: [
                 { name: "LinkedIn", url: "#", icon: "Li" },
                 { name: "GitHub", url: "https://github.com/Omegaxo555", icon: "Gh" },
