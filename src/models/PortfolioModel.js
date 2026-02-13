@@ -223,27 +223,35 @@ export const portfolioData = {
             list: [
                 {
                     id: 1,
-                    title: "Nebula Engine",
-                    category: "Creative Dev",
-                    description: "Procedural rendering engine for real-time data visualizations. Uses WebGL and parallel computing.",
-                    tags: ["Three.js", "GLSL", "React"],
+                    title: "Mechatronic Inventory",
+                    category: "Full Stack Dev",
+                    description: "A powerful inventory system for managing components of a mechatronic workshop",
+                    tags: ["PhP", "CSS", "MySQL", "JS"],
                     color: "#00f2ff"
                 },
                 {
                     id: 2,
-                    title: "Quantum API",
+                    title: "InvLocation API",
                     category: "Backend",
-                    description: "Microservices architecture designed to process millions of requests per second with minimal latency.",
-                    tags: ["Node.js", "Redis", "Docker"],
+                    description: "A Rest API for inventory control",
+                    tags: ["Node.js", "PHP", "MySQL", "JS"],
                     color: "#7000ff"
                 },
                 {
                     id: 3,
-                    title: "Aura AI",
-                    category: "Artificial Intelligence",
-                    description: "Dynamic interface generation platform based on user behavior using neural networks.",
+                    title: "GradeGuesser",
+                    category: "Inteligencia Artificial",
+                    description: "A prediction system for grades based on user behavior using neural networks.",
                     tags: ["Python", "PyTorch", "Next.js"],
                     color: "#ff0055"
+                },
+                {
+                    id: 4,
+                    title: "TradingView",
+                    category: "Frontend",
+                    description: "A stable and simple graph of a financial market in real time.",
+                    tags: ["Next.js", "Tailwind CSS", "Three.js"],
+                    color: "#51ff00"
                 }
             ]
         },
@@ -254,30 +262,21 @@ export const portfolioData = {
             list: [
                 {
                     id: 1,
-                    image: "",
-                    title: "Cyber Rush 198X",
-                    genre: "Action / Runner",
-                    description: "A frantic endless runner with retrowave aesthetics and procedural synthwave music.",
-                    tech: "Unity / C#",
-                    score: "8.5 / 10"
+                    image: "/banners/dungeonera_banner.png",
+                    title: "DUNGEONERA",
+                    genre: "RPG / Roguelike",
+                    description: "A real-time role-playing game with combat and exploration mechanics.",
+                    tech: "Game Maker Studio 2 / GML",
+                    score: "2022"
                 },
                 {
                     id: 2,
-                    image: "",
-                    title: "Pixel Knight",
-                    genre: "RPG / Platformer",
-                    description: "A tribute to 8-bit classics with modern combat and exploration mechanics.",
+                    image: "/banners/endarksun_banner.png",
+                    title: "Endarkened Sun",
+                    genre: "RPG / Soulslike",
+                    description: "A tribute to the classics of Soulslike with modern combat and exploration mechanics.",
                     tech: "Godot / GDScript",
-                    score: "9.0 / 10"
-                },
-                {
-                    id: 3,
-                    image: "",
-                    title: "Void Striker",
-                    genre: "Shoot 'em up",
-                    description: "Intensive space combat with advanced particle systems and progressive difficulty.",
-                    tech: "Phaser.js / JS",
-                    score: "8.0 / 10"
+                    score: "2022"
                 }
             ],
             footer: {
