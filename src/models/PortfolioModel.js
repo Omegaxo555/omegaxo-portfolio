@@ -39,7 +39,7 @@ export const portfolioData = {
         },
         stack: {
             title: "ECOSISTEMA TECNOLÓGICO",
-            description: "Mi ecosistema de herramientas está diseñado para la escalabilidad y el rendimiento.",
+            description: "Mi ecosistema de herramientas está diseñado para la escalabilidad y el rendimiento, para el usuario.",
             categories: [
                 {
                     name: "Arquitectura Frontend",
