@@ -39,7 +39,13 @@ export const usePortfolioController = () => {
         hero: content.hero,
         about: content.about,
         stack: content.stack,
-        projects: content.projects,
+        projects: {
+            ...content.projects,
+            list: content.projects.list.map(project => ({
+                ...project,
+                github: common.projectLinks[project.id]
+            }))
+        },
         games: content.games,
         contact: {
             ...content.contact,

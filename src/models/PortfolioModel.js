@@ -314,6 +314,12 @@ export const portfolioData = {
                 { name: "X / Twitter", url: "#", icon: "X" }
             ]
         },
+        projectLinks: {
+            1: "https://github.com/Omegaxo555/invlocationAPI",
+            2: null,
+            3: null,
+            4: null
+        },
         particlesConfig: {
             count: 8000,
             size: 0.04,
