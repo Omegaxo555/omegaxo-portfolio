@@ -309,13 +309,12 @@ export const portfolioData = {
         contactInfo: {
             email: "paulo.ruiz555@hotmail.com",
             socials: [
-                { name: "LinkedIn", url: "#", icon: "Li" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/paulo-ruiz-7038523b1/", icon: "Li" },
                 { name: "GitHub", url: "https://github.com/Omegaxo555", icon: "Gh" },
-                { name: "X / Twitter", url: "#", icon: "X" }
             ]
         },
         projectLinks: {
-            1: "https://invlocationapi-production.up.railway.app/",
+            1: "https://github.com/Omegaxo555/COMPUTATION-project",
             2: "https://github.com/Omegaxo555/invlocationAPI",
             3: null,
             4: null
