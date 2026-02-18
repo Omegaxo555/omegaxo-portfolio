@@ -88,7 +88,7 @@ export const portfolioData = {
                     id: 2,
                     title: "InvLocation API",
                     category: "Backend",
-                    description: "Una API Rest para control de inventario",
+                    description: "Una API Rest para control de inventario, https://invlocationapi-production.up.railway.app/",
                     tags: ["Node.js", "PHP", "MySQL", "JS"],
                     color: "#7000ff"
                 },
@@ -315,8 +315,8 @@ export const portfolioData = {
             ]
         },
         projectLinks: {
-            1: "https://github.com/Omegaxo555/invlocationAPI",
-            2: null,
+            1: "https://invlocationapi-production.up.railway.app/",
+            2: "https://github.com/Omegaxo555/invlocationAPI",
             3: null,
             4: null
         },
