@@ -2,17 +2,13 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ContactSchema } from '@/src/models/ContactSchema';
 
-// Initialize Resend with API key
-if (!process.env.RESEND_API_KEY) {
-    console.error("Missing RESEND_API_KEY environment variable");
-}
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req) {
     try {
         if (!process.env.RESEND_API_KEY) {
             return NextResponse.json({ error: "Falta configurar la API Key de Resend en .env.local" }, { status: 500 });
         }
+        
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
         const body = await req.json();
 
